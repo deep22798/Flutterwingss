@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+class animcrossfade extends StatefulWidget {
+  @override
+  _animcrossfadeState createState() => _animcrossfadeState();
+}
+
+class _animcrossfadeState extends State<animcrossfade> {
+  bool isChanging = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Center(
+            child: AnimatedCrossFade(
+              duration: const Duration(seconds: 1),
+              firstChild: const FlutterLogo(
+                  style: FlutterLogoStyle.horizontal, size: 200.0),
+              secondChild: const FlutterLogo(
+                  style: FlutterLogoStyle.stacked, size: 200.0),
+              crossFadeState: isChanging
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+            ),
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: ElevatedButton(
+              child: Text("Click Me!"),
+              onPressed: () {
+                setState(() {
+                  setState(() {
+                    isChanging = !isChanging;
+                  });
+                });
+              },
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

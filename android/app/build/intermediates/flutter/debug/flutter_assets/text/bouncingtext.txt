@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+class bouncingtext extends StatefulWidget {
+  @override
+  _bouncingtextState createState() => _bouncingtextState();
+}
+
+class _bouncingtextState extends State<bouncingtext> {
+  bool animated = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            AnimatedDefaultTextStyle(
+              child: Text('bounce'),
+              style : animated ? TextStyle(
+                color: Colors.blue,
+                fontSize: 80,
+              ) : TextStyle(
+                color: Colors.grey,
+                fontSize: 20,
+              ),
+              duration: Duration(milliseconds: 1000),
+              curve: Curves.elasticOut,
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            RaisedButton(
+              child: Text('Animate'),
+              onPressed: () {
+                setState(() {
+                  animated = !animated;
+                });
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

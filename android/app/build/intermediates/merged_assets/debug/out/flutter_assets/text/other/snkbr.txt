@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+
+class snkbr extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LSnackBar(),
+    );
+  }
+}
+
+class LSnackBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              TextButton(
+                child: Text("Simple SnackBar"),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Simple SnackBar"),
+                    ),
+                  );
+                },
+              ),
+              TextButton(
+                child: Text("Colored SnackBar - 0.5 Seconds"),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        "SnackBar for 0.5 seconds",
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      duration: Duration(milliseconds: 500),
+                      backgroundColor: Colors.lightGreenAccent,
+                    ),
+                  );
+                },
+              ),
+              TextButton(
+                child: Text("SnackBar with image"),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.deepPurple,
+                          ),
+                          Text(
+                            " Hai",
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        ],
+                      ),
+                      duration: Duration(seconds: 1),
+                      backgroundColor: Colors.limeAccent,
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
+        ));
+  }
+}

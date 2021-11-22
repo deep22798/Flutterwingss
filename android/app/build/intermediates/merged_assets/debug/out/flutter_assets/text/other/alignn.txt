@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class alignn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+          width: 300,
+          height: 300,
+          color: Colors.grey[200],
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FlutterLogo(
+                  size: 60,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: FlutterLogo(
+                  size: 100,
+                ),
+              ),
+            ],
+          )),
+    );
+  }
+}

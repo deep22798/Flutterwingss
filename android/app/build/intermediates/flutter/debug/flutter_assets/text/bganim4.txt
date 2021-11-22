@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_particles/particles.dart';
+
+class bganim4 extends StatefulWidget {
+  @override
+  _bganim4State createState() => _bganim4State();
+}
+
+class _bganim4State extends State<bganim4> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Particles(
+        40,
+        Colors.white,
+      ),
+    );
+  }
+}

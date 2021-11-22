@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+class intractiveviewer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: InteractiveViewer(
+        minScale: 0.1,
+        maxScale: 6,
+        child: Image.asset('image/img_3.jpg'),
+      ),
+    );
+  }
+}

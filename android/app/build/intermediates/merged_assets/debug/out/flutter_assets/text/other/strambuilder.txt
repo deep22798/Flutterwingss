@@ -1,0 +1,29 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+class strambuilder extends StatelessWidget {
+  Stream<int> counter() async* {
+    int i = 0;
+    while (true) {
+      await Future.delayed(Duration(seconds: 1));
+      yield i++;
+      if (i == 100) break;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: StreamBuilder<int>(
+        stream: counter(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Text("Intializing...");
+          }
+          return Text("${snapshot.data}", style: TextStyle(fontSize: 40));
+        },
+      ),
+    );
+  }
+}

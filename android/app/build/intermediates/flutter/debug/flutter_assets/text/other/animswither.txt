@@ -1,0 +1,66 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+class animswither extends StatefulWidget {
+  animswither({Key? key}) : super(key: key);
+
+  @override
+  _animswitherState createState() => _animswitherState();
+}
+
+class _animswitherState extends State<animswither> {
+  bool switchChild = true;
+
+  @override
+  Widget build(BuildContext context) {
+    List colors = [
+      Colors.red,
+      Colors.green,
+      Colors.yellow,
+      Colors.pink,
+      Colors.blue,
+      Colors.amber,
+      Colors.deepPurple
+    ];
+    Random random = new Random();
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Expanded(
+            child: AnimatedSwitcher(
+              duration: const Duration(seconds: 3),
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                return ScaleTransition(child: child, scale: animation);
+              },
+              child: switchChild
+                  ? Container(
+                key: UniqueKey(),
+                height: 100.0,
+                width: 100.0,
+                color: colors[random.nextInt(colors.length)],
+              )
+                  : Container(
+                key: UniqueKey(),
+                height: 150.0,
+                width: 150.0,
+                color: colors[random.nextInt(colors.length)],
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                switchChild = !switchChild;
+              });
+            },
+            child: Text('Click'),
+          ),
+        ],
+      ),
+    );
+  }
+}

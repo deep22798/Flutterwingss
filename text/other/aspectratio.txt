@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+class aspectratio extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              AspectRatio(
+                aspectRatio: 3 / 2, //3:2
+                child: Container(
+                  color: Colors.pink,
+                ),
+              ),
+              AspectRatio(
+                aspectRatio: 5 / 2, //5:2
+                child: Container(
+                  color: Colors.yellow,
+                ),
+              ),
+              AspectRatio(
+                aspectRatio: 16 / 9, //16:9
+                child: Container(
+                  color: Colors.green,
+                ),
+              )
+            ],
+          ),
+        ));
+  }
+}

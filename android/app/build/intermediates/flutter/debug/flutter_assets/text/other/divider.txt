@@ -1,0 +1,41 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class divider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Divider(),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Divider(
+            color: Colors.pink,
+            height: 20,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+          Divider(
+            thickness: 5,
+            indent: 20,
+            endIndent: 20,
+            color: Colors.green,
+          ),
+          Container(
+            height: 100,
+            color: Colors.yellow,
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,0 +1,75 @@
+import 'package:flutter/material.dart';
+
+class radiiolt extends StatefulWidget {
+  @override
+  _radiioltState createState() => _radiioltState();
+}
+
+class _radiioltState extends State<radiiolt> {
+  Color? _bgColor = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: _bgColor,
+      child: Column(
+        children: [
+          Text(
+            "\nSet background color\n",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          RadioListTile<Color>(
+            title: const Text('Green'),
+            value: Colors.lightGreen,
+            groupValue: _bgColor,
+            onChanged: (Color? value) {
+              setState(() {
+                _bgColor = value;
+              });
+            },
+          ),
+          RadioListTile<Color>(
+            title: const Text('Yellow'),
+            value: Colors.yellowAccent,
+            groupValue: _bgColor,
+            onChanged: (Color? value) {
+              setState(() {
+                _bgColor = value;
+              });
+            },
+          ),
+          RadioListTile<Color>(
+            title: const Text('Blue'),
+            value: Colors.lightBlueAccent,
+            groupValue: _bgColor,
+            onChanged: (Color? value) {
+              setState(() {
+                _bgColor = value;
+              });
+            },
+          ),
+          RadioListTile<Color>(
+            title: const Text('Cyan'),
+            value: Colors.cyanAccent,
+            groupValue: _bgColor,
+            onChanged: (Color? value) {
+              setState(() {
+                _bgColor = value;
+              });
+            },
+          ),
+          RadioListTile<Color>(
+            title: const Text('White'),
+            value: Colors.white,
+            groupValue: _bgColor,
+            onChanged: (Color? value) {
+              setState(() {
+                _bgColor = value;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}

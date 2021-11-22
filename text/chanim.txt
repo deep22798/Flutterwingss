@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+
+class MyCustomWidget extends StatefulWidget {
+  @override
+  _MyCustomWidgetState createState() => _MyCustomWidgetState();
+}
+
+class _MyCustomWidgetState extends State<MyCustomWidget>
+    with TickerProviderStateMixin {
+  Animation _heartAnimation;
+  AnimationController _heartAnimationController;
+
+  bool isTapped = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _heartAnimationController = AnimationController(
+        vsync: this,
+        duration: Duration(milliseconds: 1500),
+        reverseDuration: Duration(milliseconds: 400));
+    _heartAnimation = Tween(begin: 120.0, end: 170.0).animate(CurvedAnimation(
+        curve: Curves.elasticOut,
+        reverseCurve: Curves.ease,
+        parent: _heartAnimationController));
+
+    _heartAnimationController.addStatusListener(
+      (AnimationStatus status) {
+        if (status == AnimationStatus.completed) {
+          _heartAnimationController.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          _heartAnimationController.forward();
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _heartAnimationController?.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: secondChild(),
+      ),
+    );
+  }
+
+  Widget secondChild() {
+    return AnimatedBuilder(
+      animation: _heartAnimationController,
+      builder: (context, child) {
+        return Center(
+          child: AnimatedBuilder(
+            animation: _heartAnimationController,
+            builder: (context, child) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(Icons.favorite,
+                        color: Colors.red, size: _heartAnimation.value),
+                    Column(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () => _heartAnimationController.forward(),
+                          child: Text(
+                            'Start beating',
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () => _heartAnimationController.stop(),
+                          child: Text(
+                            'Stop beating',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+}

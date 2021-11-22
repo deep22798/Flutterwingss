@@ -1,0 +1,135 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class dismissible extends StatefulWidget {
+  @override
+  _dismissibleState createState() => _dismissibleState();
+}
+
+class _dismissibleState extends State<dismissible> {
+  List<int> colorCodes = <int>[50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>dismiblecode()));
+      },child: Text("Codes"),backgroundColor: Colors.teal,),
+      appBar: AppBar(iconTheme: IconThemeData(color: Colors.white),backgroundColor: Colors.teal,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 50),
+          child: Center(child: Text("Dismisible",style: TextStyle(color: Colors.white),)),
+        ),
+      ),
+      body: Container(
+        child: ConstrainedBox(
+            constraints: new BoxConstraints(
+              minHeight: 35.0,
+              maxHeight: 160.0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(child: _listBuilder()),
+              ],
+            )),
+      ),
+    );
+  }
+
+  Widget _listBuilder() {
+    return ListView.builder(
+        padding: const EdgeInsets.all(8),
+        itemCount: colorCodes.length,
+        itemBuilder: (BuildContext context, int index) {
+          final item = colorCodes[index];
+          return Dismissible(
+            // Each Dismissible must contain a Key. Keys allow Flutter to
+            // uniquely identify widgets.
+
+            key: Key(item.toString()),
+            // Provide a function that tells the app
+            // what to do after an item has been swiped away.
+            onDismissed: (direction) {
+              // Remove the item from the data source.
+              setState(() {
+                colorCodes.removeAt(index);
+              });
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Removed - Item $index')),
+              );
+              // Then show a snackbar.
+            },
+            // Show a red background as the item is swiped away.
+            background: Container(color: Colors.red),
+            child: Container(
+              height: 50,
+              color: Colors.amber[colorCodes[index % 10]],
+              child: Center(child: Text('Item $index')),
+            ),
+          );
+          /*Container(
+            height: 50,
+            color: Colors.amber[colorCodes[index % 10]],
+            child: Center(child: Text('Item $index')),
+          );*/
+        });
+  }
+}
+
+
+
+
+
+class dismiblecode extends StatefulWidget {
+  const dismiblecode({Key? key}) : super(key: key);
+
+  @override
+  _dismiblecodeState createState() => _dismiblecodeState();
+}
+
+class _dismiblecodeState extends State<dismiblecode> {
+  String data="";
+  fetchFileData()async{
+    String responseText;
+    responseText =await rootBundle.loadString('text/other/dismissible.txt');
+    setState(() {
+      data=responseText;
+    });
+  }
+  @override
+  void initState() {
+    fetchFileData();
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(iconTheme: IconThemeData(color: Colors.white),backgroundColor: Colors.teal,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 50),
+          child: Center(child: Text("Dismisible",style: TextStyle(color: Colors.white),)),
+        ),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SizedBox(height: 30,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Align(alignment: Alignment.topLeft,
+                      child: Text("Code",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
+                ),
+                SizedBox(height: 20,),
+                SelectableText(data),
+                SizedBox(height: 20,),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

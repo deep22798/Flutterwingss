@@ -1,0 +1,34 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
+
+
+class fadetextanim extends StatefulWidget {
+  @override
+  _fadetextanimState createState() => _fadetextanimState();
+}
+
+class _fadetextanimState extends State<fadetextanim> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: Center(
+        child: DefaultTextStyle(
+          style: TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+          child: AnimatedTextKit(
+            repeatForever: true,
+            isRepeatingAnimation: true,
+            animatedTexts: [
+              FadeAnimatedText('do IT!'),
+              FadeAnimatedText('do it RIGHT!!'),
+              FadeAnimatedText('do it RIGHT NOW!!!'),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

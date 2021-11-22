@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class clirect extends StatefulWidget {
+  @override
+  _clirectState createState() => _clirectState();
+}
+
+class _clirectState extends State<clirect> {
+  var _size = 50.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            child: Container(
+              width: 200,
+              height: 200,
+              color: Colors.yellow,
+              child: Center(
+                  child: FlutterLogo(
+                    size: _size + 10,
+                  )),
+            ),
+            borderRadius: BorderRadius.circular(_size),
+          ),
+        ),
+        Container(
+          child: Slider(
+            value: _size,
+            activeColor: Theme.of(context).primaryColor,
+            inactiveColor: Theme.of(context).primaryColor.withOpacity(0.3),
+            min: 0.0,
+            max: 100.0,
+            divisions: 100,
+            onChanged: (double value) {
+              setState(() {
+                _size = value;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

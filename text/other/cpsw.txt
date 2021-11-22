@@ -1,0 +1,57 @@
+import 'package:flutter/cupertino.dart';
+
+class cpsw extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CupertinoApp(
+        home: CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            leading: CupertinoButton(
+              padding: EdgeInsets.all(0.0),
+              child: Icon(CupertinoIcons.back),
+              onPressed: () {
+                // The demo is on the root navigator.
+                Navigator.of(context, rootNavigator: true).pop();
+              },
+            ),
+            middle: Text('CupertinoApp'),
+            trailing: CupertinoButton(
+              padding: EdgeInsets.all(0.0),
+              child: Icon(CupertinoIcons.settings),
+              onPressed: () {
+                // The demo is on the root navigator.
+                showCupertinoDialog(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoAlertDialog(
+                    title: const Text('Hi'),
+                    content: Text("This is Cupertino Dialog."),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        onPressed: () {
+                          Navigator.pop(context, "Ok");
+                        },
+                        child: const Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'This is Cupertino Page Scaffold Widget',
+                style: TextStyle(color: Color.fromARGB(100, 500, 0, 0)),
+              ),
+            ),
+          ),
+        ),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+}

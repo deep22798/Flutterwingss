@@ -1,0 +1,58 @@
+1. Click Download google-services.json to obtain your Firebase Android config file (google-services.json).
+
+   • You can download your Firebase Android config file again at any time.
+   • Make sure the config file is not appended with additional characters, like (2).
+
+Note: The Firebase config file contains unique, but non-secret identifiers for your project.
+Visit Understand Firebase Projects to learn more about this config file.
+
+2. Move your config file into the android/app directory of your Flutter app.
+
+3. To enable Firebase services in your Android app, add the google-services plugin to your Gradle files, as follows:
+
+    a. In your root-level (project-level) Gradle file (android/build.gradle), add rules to include the Google Services Gradle plugin. Check that you have Google’s Maven repository, as well.
+
+buildscript {
+
+    repositories {
+      // Check that you have the following line (if not, add it):
+      google()  // Google's Maven repository
+    }
+
+    // ...
+
+    dependencies {
+      //
+
+      // Add the following line:
+      classpath 'com.google.gms:google-services:4.3.10'  // Google Services plugin
+    }
+}
+
+allprojects {
+    // ...
+
+    repositories {
+      // Check that you have following line (if not, add it):
+      google()  // Google's Maven repository
+      // ...
+    }
+}
+     b. In your module (app-level) Gradle file (usually android/app/build.gradle), apply the Google Services Gradle plugin.
+
+
+// Add the following line:
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
+
+android {
+  // ...
+}
+
+// ...
+4. Run flutter packages get.
+
+For more information about managing packages and plugins, refer to Using Packages.
+
+5. Back in the Firebase console setup workflow, click Next to skip the remaining steps.
+
+6. Continue to Add FlutterFire plugins.

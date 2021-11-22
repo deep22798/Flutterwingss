@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "197655634206",
+    "project_id": "flutterwings-c2e3c",
+    "storage_bucket": "flutterwings-c2e3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197655634206:android:2bd890947282ea0ac1e90f",
+        "android_client_info": {
+          "package_name": "com.wintechwings.flutterwings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197655634206-73jkdd97oisicjr2va3dersc9cfc3gdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wintechwings.flutterwings",
+            "certificate_hash": "0dbcfad80220c91284295b9489ba320b2927665d"
+          }
+        },
+        {
+          "client_id": "197655634206-8a7a7f8uq7v2thika1ehejuhdf7a3oje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wintechwings.flutterwings",
+            "certificate_hash": "4fb0c5dcbd1cfb40604e9bc4d6e489a560a55bd0"
+          }
+        },
+        {
+          "client_id": "197655634206-jbb27t90qib11hd7ehfgj2ekbiqp0i4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0IfX1oYJQG6Bq810_B5URPsBHfmYFI4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197655634206-jbb27t90qib11hd7ehfgj2ekbiqp0i4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

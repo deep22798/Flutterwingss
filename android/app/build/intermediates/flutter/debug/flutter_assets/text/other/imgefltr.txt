@@ -1,0 +1,31 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+class imgefltr extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: 6, sigmaY: 4),
+              child: Image.asset("image/logo.png"),
+            ),
+            ImageFiltered(
+              imageFilter: ImageFilter.matrix(Matrix4.rotationZ(0.2).storage),
+              child: Image.asset(
+                "image/logo.png",
+                height: 100,
+                width: 200,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

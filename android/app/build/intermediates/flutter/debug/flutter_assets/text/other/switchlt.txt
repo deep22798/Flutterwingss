@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class switchlt extends StatefulWidget {
+  @override
+  _switchltState createState() => _switchltState();
+}
+
+class _switchltState extends State<switchlt> {
+  bool _isSwitchedOn = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: _isSwitchedOn ? Colors.amber : Colors.white,
+      child: Center(
+        child: SwitchListTile(
+          title:
+          Text(_isSwitchedOn ? 'Color Switched ON' : "Color Switched OFF"),
+          value: _isSwitchedOn,
+          onChanged: (bool value) {
+            setState(() {
+              _isSwitchedOn = value;
+            });
+          },
+          subtitle: Text(_isSwitchedOn ? "Yellow Color" : "White Color"),
+          secondary: const Icon(Icons.color_lens),
+        ),
+      ),
+    );
+  }
+}

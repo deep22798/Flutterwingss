@@ -1,0 +1,10 @@
+from network image:
+
+const Image(
+  image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+)
+
+from local image:
+
+AssetImage("assets/imagewid.jpg")
+

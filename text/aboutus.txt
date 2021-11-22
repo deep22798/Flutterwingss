@@ -1,0 +1,36 @@
+Learn Flutter with FlutterWings Tutorial Offline App
+
+This FREE app will help you to understand Flutter properly and teach you about how to Start Coding.
+Here we are covering almost all Functions, Libraries, attributes, references. The sequential tutorial let you know from basic to advance level.
+This "Flutter Tutorial" is helpful for students to learn Coding step by step from basic to advance level.
+
+
+Build amazing apps and websites with the cross platform framework: Flutter
+
+Looking to build beautiful apps with the cross-platform and powerful app development framework backed by Google. 
+
+Flutter is becoming one of the most popular cross-platform app development frameworks to build mobile apps for both android and iOS devices. If you aspire to build your career as a flutter developer or just exploring how flutter works, this is the right app for you. 
+
+You can learn about Dart. Whether, you are a beginner at flutter looking to learn Flutter from scratch, or you're looking to brush up your skills on Flutter, you will find all the right lessons for you.
+
+Flutter is a cross-platform UI toolkit that is designed to allow code reuse across operating systems such as iOS and Android, 
+
+while also allowing applications to interface directly with underlying platform services. The goal is to enable developers to deliver high-performance apps that feel natural on different platforms, embracing differences where they exist while sharing as much code as possible. 
+In this app, you will learn about Flutter Architecture, building widgets with flutter, building layouts with flutter and more.
+
+
+	Why Choose this app?
+Whether you're preparing for a software examination or preparing for a job interview in flutter, dart programming, this is the only tutorial app you'll ever need to prepare yourself for the interview questions or examination questions. 
+You can practice coding and programming examples on this fun programming learning app.
+
+
+	Share some Love❤️
+If you like our app, please share some love by rating us on the play store.
+
+
+	We Love Feedback
+Have any feedback to share? Feel free to send us an email on info@wintechwings.in
+
+
+	About FlutterWings
+FlutterWings is a premium learning app that is backed by Google's Experts. FlutterWings offers research backed combination of  learning technique + insights from experts which ensures you learn thoroughly. For more details, visit us on https://www.wintechwings.com

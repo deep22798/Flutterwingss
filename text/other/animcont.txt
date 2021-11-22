@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class animcont extends StatefulWidget {
+  @override
+  _animcontState createState() => _animcontState();
+}
+
+class _animcontState extends State<animcont> {
+  double size = 50.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          ElevatedButton(
+            child: Text('Click to Animate'),
+            onPressed: () {
+              setState(() {
+                size = size == 250 ? 50 : 250;
+              });
+            },
+          ),
+          AnimatedContainer(
+            duration: Duration(seconds: 2),
+            width: size,
+            height: size,
+            color: Theme.of(context).primaryColor,
+          ),
+        ],
+      ),
+    );
+  }
+}

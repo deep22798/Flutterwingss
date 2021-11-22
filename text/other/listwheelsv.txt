@@ -1,0 +1,28 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+class listwheelsv extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListWheelScrollView(
+      children: listItems(context),
+      itemExtent: 100,
+      useMagnifier: true,
+      magnification: 1.25,
+    );
+  }
+}
+
+List<Widget> listItems(BuildContext context) {
+  int i = 0;
+  List<Widget> items = [];
+  do {
+    i += 1;
+    items.add(Container(
+      color: Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0)
+          .withOpacity(1.0),
+    ));
+  } while (i <= 100);
+  return items;
+}

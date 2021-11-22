@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class imge extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text("Image from Asset"),
+            Image.asset("image/logo.png"),
+            Text("Image from Network"),
+            Image.network(
+                "https://miro.medium.com/max/3200/1*mMJ3IvaAuMAmqjtyistCog.png"),
+          ],
+        ),
+      ),
+    );
+  }
+}

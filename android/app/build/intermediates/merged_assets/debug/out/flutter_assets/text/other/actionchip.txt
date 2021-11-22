@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class actionchip extends StatelessWidget {
+  void showSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        "Clicked",
+      ),
+      duration: Duration(seconds: 1),
+    ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        ActionChip(
+            label: Text('Action Chip'),
+            onPressed: () {
+              showSnackBar(context);
+            }),
+        ActionChip(
+            label: Text('Action Chip having tooltip'),
+            tooltip: 'This is tooltip',
+            onPressed: () {
+              showSnackBar(context);
+            }),
+        ActionChip(
+            label: Text('Action Chip with icon'),
+            avatar: Icon(Icons.accessibility_outlined),
+            onPressed: () {
+              showSnackBar(context);
+            }),
+        ActionChip(
+            label: Text('Action Chip with custom color'),
+            labelStyle: TextStyle(color: Colors.white),
+            avatar: Icon(Icons.color_lens_outlined, color: Colors.white),
+            backgroundColor: Colors.deepPurple,
+            onPressed: () {
+              showSnackBar(context);
+            }),
+        ActionChip(
+            label: Text('Action Chip with Elevation'),
+            avatar: Icon(Icons.ac_unit_outlined),
+            elevation: 10,
+            pressElevation: 5,
+            shadowColor: Colors.teal,
+            onPressed: () {
+              showSnackBar(context);
+            })
+      ],
+    );
+  }
+}

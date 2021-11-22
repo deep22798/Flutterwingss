@@ -1,0 +1,86 @@
+import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
+import 'dart:math' as math;
+
+class MyCustomWidget extends StatefulWidget {
+  @override
+  _MyCustomWidgetState createState() => _MyCustomWidgetState();
+}
+
+class _MyCustomWidgetState extends State<MyCustomWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller =
+    AnimationController(vsync: this, duration: Duration(seconds: 10))
+      ..repeat();
+  }
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Center(
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (_, child) {
+                return Transform.rotate(
+                  angle: _controller.value * 2 * math.pi,
+                  child: child,
+                );
+              },
+              child: Image.asset(
+                'assets/images/moon.png',
+              ),
+            ),
+          ),
+          Center(
+            child: Container(
+              height: 161,
+              width: 161,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.white.withOpacity(1),
+                    Colors.white.withOpacity(.1),
+                    Colors.white.withOpacity(.05),
+                    Colors.black.withOpacity(.05),
+                    Colors.black.withOpacity(.1),
+                    Colors.black.withOpacity(.2),
+                    Colors.black.withOpacity(.3),
+                    Colors.black.withOpacity(.4),
+                    Colors.black.withOpacity(.5),
+                    Colors.black.withOpacity(.6),
+                    Colors.black.withOpacity(.7),
+                    Colors.black.withOpacity(.8),
+                    Colors.black.withOpacity(.9),
+                    Colors.black.withOpacity(.9),
+                    Colors.black.withOpacity(1),
+                    Colors.black.withOpacity(1),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

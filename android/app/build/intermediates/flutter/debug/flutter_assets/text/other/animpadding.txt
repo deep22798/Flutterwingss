@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class animpadding extends StatefulWidget {
+  @override
+  _animpaddingState createState() => _animpaddingState();
+}
+
+class _animpaddingState extends State<animpadding> {
+  double padding = 10.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: AnimatedPadding(
+          padding: EdgeInsets.all(padding),
+          duration: Duration(seconds: 1),
+          child: InkWell(
+            child: Container(
+              color: Theme.of(context).accentColor,
+              child: Center(
+                child: Text("Touch me"),
+              ),
+            ),
+            onTap: () {
+              setState(() {
+                padding = (padding == 10.0) ? 40.0 : 10.0;
+              });
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,23 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+class sliverlst extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+              return Container(
+                  color: Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0)
+                      .withOpacity(1.0),
+                  height: 100.0);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

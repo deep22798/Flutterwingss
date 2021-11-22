@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+class twinanimbuilder extends StatefulWidget {
+  @override
+  _twinanimbuilderWidgetState createState() =>
+      _twinanimbuilderWidgetState();
+}
+
+class _twinanimbuilderWidgetState extends State<twinanimbuilder> {
+  @override
+  Widget build(BuildContext context) {
+    Color _cValue = Colors.yellow;
+    return Center(
+      child: TweenAnimationBuilder<Color?>(
+          duration: const Duration(seconds: 3),
+          tween: ColorTween(begin: Colors.blue, end: _cValue),
+          child: FlutterLogo(
+            size: MediaQuery.of(context).size.width * 0.75,
+            textColor: Colors.blue,
+          ),
+          builder: (BuildContext _, Color? value, Widget? child) {
+            return ColorFiltered(
+              child: child,
+              colorFilter: ColorFilter.mode(value!, BlendMode.modulate),
+            );
+          },
+          onEnd: () {
+            setState(() {
+              _cValue = Colors.green;
+            });
+          }),
+    );
+  }
+}

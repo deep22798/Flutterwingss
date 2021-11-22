@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+//Material design library
+void main() {
+runApp(
+	//widget tree starts here
+	MaterialApp(
+	home: Scaffold(
+		appBar: AppBar(
+		leading: Container(
+			color: Colors.white,
+			padding: EdgeInsets.all(3),
+			/** FlutterLogo Widget **/
+			child: FlutterLogo(
+			size: 10,
+			), //FlutterLogo
+		), //Container
+		title: Text('GeeksforGeeks'),
+		backgroundColor: Colors.greenAccent[400],
+		centerTitle: true,
+		), //AppBar
+		body: Center(
+		child: Container(
+			/** FlutterLogo Widget **/
+			child: FlutterLogo(
+			size: 300,
+			textColor: Colors.blue,
+			style: FlutterLogoStyle.stacked,
+			), //FlutterLogo
+		), //Container
+		), //Center
+	), //Scaffold
+	), //MaterialApp
+);
+}

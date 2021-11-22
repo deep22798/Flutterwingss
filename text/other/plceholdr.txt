@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class plceholdr extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Container(child: Placeholder()),
+        Center(
+          child: Container(
+            height: 100,
+            width: 100,
+            child: Placeholder(
+              color: Colors.purple,
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            height: 200,
+            width: 200,
+            child: Placeholder(
+              color: Colors.green,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+
+class columnn extends StatefulWidget {
+  @override
+  _columnnState createState() => _columnnState();
+}
+
+enum ALIGN { spaceEvenly, start, center }
+
+class _columnnState extends State<columnn> {
+  ALIGN? _character = ALIGN.spaceEvenly;
+  MainAxisAlignment _mainAxisAlignment = MainAxisAlignment.spaceEvenly;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            color: Theme.of(context).accentColor.withOpacity(0.5),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: _mainAxisAlignment,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text(
+                    "This is the Column Widget - Item1",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                  Text(
+                    "This is the Column Widget - Item2",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                  Image.asset(
+                    "image/logo.png",
+                    fit: BoxFit.fitHeight,
+                  ),
+                  Text(
+                    "This is the Column Widget - Item4",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+
+                  //new Container()
+                ],
+              ),
+            ),
+          ),
+        ),
+        Container(
+          child: Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Row(
+              children: <Widget>[
+                Radio(
+                  value: ALIGN.spaceEvenly,
+                  groupValue: _character,
+                  onChanged: (ALIGN? value) {
+                    setState(() {
+                      _character = value;
+                      _mainAxisAlignment = MainAxisAlignment.spaceEvenly;
+                    });
+                  },
+                ),
+                Text("Evently"),
+                Radio(
+                  value: ALIGN.start,
+                  groupValue: _character,
+                  onChanged: (ALIGN? value) {
+                    setState(() {
+                      _character = value;
+                      _mainAxisAlignment = MainAxisAlignment.start;
+                    });
+                  },
+                ),
+                Text("Start"),
+                Radio(
+                  value: ALIGN.center,
+                  groupValue: _character,
+                  onChanged: (ALIGN? value) {
+                    setState(() {
+                      _character = value;
+                      _mainAxisAlignment = MainAxisAlignment.center;
+                    });
+                  },
+                ),
+                Text("Center"),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

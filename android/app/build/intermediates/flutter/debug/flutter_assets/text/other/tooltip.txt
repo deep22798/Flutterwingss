@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+class tooltip extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Center(
+          child: Center(child: Text("Long Press on boxes")),
+        ),
+        Center(
+            child: Tooltip(
+              child: Container(
+                height: 100,
+                width: 100,
+                color: Colors.green,
+              ),
+              message: "Green",
+            )),
+        Center(
+            child: Tooltip(
+              child: Container(
+                height: 100,
+                width: 100,
+                color: Colors.yellow,
+              ),
+              message: "Yelow",
+            )),
+        Center(
+            child: Tooltip(
+              child: Container(
+                height: 100,
+                width: 100,
+                color: Colors.red,
+              ),
+              message: "Red",
+            )),
+      ],
+    );
+  }
+}

@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:tweener/tweener.dart';
+class MyCustomWidget extends StatefulWidget {
+  @override
+  _MyCustomWidgetState createState() => _MyCustomWidgetState();
+}
+
+class _MyCustomWidgetState extends State<MyCustomWidget> {
+  double _counter = 0;
+
+  bool tap = true;
+  bool show = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onHighlightChanged: (value) {
+            tap = !value;
+            show = false;
+            if (tap == true) {
+              Tweener({'x': 30})
+                  .to({'x': 50}, 500)
+                  .easing(Ease.linear.easeIn)
+                  .onUpdate((obj) {
+                setState(() {
+                  _counter = (obj['x']).round() * 1.0;
+                });
+              })
+                  .onComplete((obj) {})
+                  .start();
+            } else {
+              Tweener(
+                {'x': 50},
+              )
+                  .to({'x': 30}, 200)
+                  .easing(Ease.linear.easeIn)
+                  .onUpdate((obj) {
+                setState(() {
+                  _counter = (obj['x']).round() * 1.0;
+                });
+              })
+                  .onComplete((obj) {})
+                  .start();
+            }
+          },
+          onTap: () {
+            show = false;
+          },
+          child: AnimatedContainer(
+            curve: Curves.fastLinearToSlowEaseIn,
+            duration: Duration(milliseconds: 1500),
+            height: tap ? 100 : 70,
+            width: tap ? 100 : 70,
+            decoration: BoxDecoration(
+                color: Color(0xFFFF5757),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                      color: Color(0xFFFF5757).withOpacity(0.5),
+                      offset: Offset(0, 5),
+                      blurRadius: 30)
+                ]),
+            child: Icon(
+              Icons.favorite,
+              color: Colors.white,
+              size: show ? 50 : _counter,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

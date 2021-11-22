@@ -1,0 +1,32 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class mouseregion extends StatefulWidget {
+  @override
+  _mouseregionState createState() => _mouseregionState();
+}
+
+class _mouseregionState extends State<mouseregion> {
+  double x = 0.0;
+  double y = 0.0;
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onHover: (event) {
+        setState(() {
+          x = event.position.dx;
+          y = event.position.dy;
+        });
+      },
+      cursor: SystemMouseCursors.basic,
+      child: Container(
+        child: Center(
+          child: Text(
+            'You touched at: (${x.toStringAsFixed(2)}, ${y.toStringAsFixed(2)})',
+          ),
+        ),
+      ),
+    );
+  }
+}

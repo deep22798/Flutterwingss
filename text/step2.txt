@@ -1,0 +1,17 @@
+1. In the center of the Firebase console's project overview page, click the Android icon (plat_android) to launch the setup workflow.
+   If you've already added an app to your Firebase project, click Add app to display the platform options.
+
+2. Enter your app's package name in the Android package name field.
+
+  • Make sure that you enter the ID that your app is actually using. You cannot add or modify this value after you register your app with your Firebase project.
+  • A package name is sometimes referred to as an application ID.
+
+  • Find this package name in your module (app-level) Gradle file, usually app/build.gradle (example package name: com.yourcompany.yourproject).
+
+3. (Optional) Enter other app information as prompted by the setup workflow.
+
+  • App nickname: An internal, convenience identifier that is only visible to you in the Firebase console
+
+  • Debug signing certificate SHA-1: A SHA-1 hash is required by Firebase Authentication (when using Google Sign In or phone number sign in) and Firebase Dynamic Links.
+
+4. Click Register app.

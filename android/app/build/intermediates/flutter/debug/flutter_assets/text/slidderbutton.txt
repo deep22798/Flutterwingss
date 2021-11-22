@@ -1,0 +1,39 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:slider_button/slider_button.dart';
+
+class sliderbutton extends StatefulWidget {
+  @override
+  _sliderbuttonState createState() => _sliderbuttonState();
+}
+
+class _sliderbuttonState extends State<sliderbutton> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: SliderButton(
+          action: () {
+            ///Do something here
+          },
+          label: Text(
+            'Slide to cancel Event',
+            style: TextStyle(
+                color: Color(0xff4a4a4a),
+                fontWeight: FontWeight.w500,
+                fontSize: 17),
+          ),
+          icon: Text(
+            'x',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+              fontSize: 40,
+            ),
+          ),
+          buttonColor: Colors.black,
+        ),
+      ),
+    );
+  }
+}

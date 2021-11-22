@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+class builderr extends StatelessWidget {
+  builderr({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Scaffold(
+        body: Builder(builder: (context) {
+          return Container(
+            child: Center(
+              child: ElevatedButton(
+                child: Text("Show Snackbar"),
+                onPressed: () {
+                  //Without the builder widget, the below code wont work, because of unavailability of builder context
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content:
+                      Text("SnackBar shown without using scaffold key"),
+                    ),
+                  );
+                },
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+}

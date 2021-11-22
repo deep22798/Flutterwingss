@@ -1,0 +1,77 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class draggablee extends StatefulWidget {
+  @override
+  _draggableeState createState() => _draggableeState();
+}
+
+class _draggableeState extends State<draggablee> {
+  bool isSuccessful = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            child: isSuccessful
+                ? SizedBox()
+                : Draggable(
+              data: 'Flutter',
+              child: FlutterLogo(
+                size: 100.0,
+              ),
+              feedback: FlutterLogo(
+                size: 100.0,
+              ),
+              childWhenDragging: Container(),
+            ),
+          ),
+        ),
+        Expanded(
+          child: DragTarget(
+            builder: (context, List<String?> candidateData, rejectedData) {
+              return Center(
+                child: isSuccessful
+                    ? Container(
+                  color: Theme.of(context).accentColor.withOpacity(0.5),
+                  child: Center(
+                      child: Column(
+                        children: <Widget>[
+                          FlutterLogo(
+                            size: 100.0,
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.close),
+                            onPressed: () {
+                              setState(() {
+                                isSuccessful = false;
+                              });
+                            },
+                          ),
+                        ],
+                      )),
+                )
+                    : Container(
+                  color: Theme.of(context).accentColor.withOpacity(0.7),
+                ),
+              );
+            },
+            onWillAccept: (dynamic data) {
+              return true;
+            },
+            onAccept: (dynamic data) {
+              setState(() {
+                isSuccessful = true;
+              });
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}

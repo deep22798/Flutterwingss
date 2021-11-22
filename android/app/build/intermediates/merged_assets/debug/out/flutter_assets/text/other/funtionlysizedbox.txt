@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+
+class funtionlysizedbox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+              height: MediaQuery.of(context).size.height / 2,
+              child: FractionallySizedBox(
+                heightFactor: 0.5,
+                widthFactor: 0.5,
+                child: Container(
+                  color: Colors.yellow,
+                  child: FractionallySizedBox(
+                    heightFactor: 0.5,
+                    widthFactor: 0.5,
+                    child: Container(
+                      color: Colors.green,
+                      child: FractionallySizedBox(
+                        heightFactor: 0.5,
+                        widthFactor: 0.5,
+                        child: Container(
+                          color: Colors.red,
+                          child: FractionallySizedBox(
+                            heightFactor: 0.25,
+                            widthFactor: 0.25,
+                            child: Container(
+                              color: Colors.yellowAccent,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )),
+        Expanded(
+          child: Container(
+            child: FractionallySizedBox(
+              heightFactor: 0.75,
+              widthFactor: 0.25,
+              child: Container(
+                color: Colors.yellowAccent,
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

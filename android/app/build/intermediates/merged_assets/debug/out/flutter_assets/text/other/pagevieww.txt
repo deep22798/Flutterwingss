@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+class pagevieww extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
+      physics: BouncingScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      children: <Widget>[
+        Container(
+          color: Colors.yellow,
+          child: Center(
+            child: Text("Swipe UP"),
+          ),
+        ),
+        Container(
+          color: Colors.pink,
+          child: Center(
+            child: Text("Swipe UP or Down"),
+          ),
+        ),
+        Container(
+          color: Colors.amber,
+          child: Center(
+            child: Text("Swipe UP or Down"),
+          ),
+        ),
+        Container(
+          color: Colors.cyan,
+          child: Center(
+            child: Text("Swipe UP or Down"),
+          ),
+        ),
+        Container(
+          color: Colors.deepPurple,
+          child: Center(
+            child: Text("Swipe Down"),
+          ),
+        ),
+      ],
+    );
+  }
+}

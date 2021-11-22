@@ -1,0 +1,1 @@
+Firebase is a powerful and popular cloud service that provides state of the art features, like Real-time database, Cloud storage, Firestore, authentication, hosting, etc. The amazing thing is that Firebase simplifies its integration in different programming frameworks.
